@@ -4,6 +4,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
+import pickle
+import os
 
 df=pd.read_csv("excel_file.csv")
 # print(df.head())
@@ -37,6 +39,8 @@ model.fit(X_train, Y_train)
 prediction_test = model.predict(X_test)
 print("Accuracy=",metrics.accuracy_score(Y_test,prediction_test))
 
+with open('model_pickle','wb') as f:
+    pickle.dump(model,f)
 
 
 
