@@ -7,7 +7,9 @@ from sklearn import metrics
 import pickle
 import os
 
+data=[["0","80","45000"]]
+
 with open('model_pickle','rb') as f:
     mp=pickle.load(f)
 
-mp.predict(data)
+print(mp.predict(data))
