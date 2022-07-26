@@ -7,12 +7,15 @@ import pickle
 import os
 from playsound import playsound
 
-data=[["0","80","45000"]]
+data=[["0","80","45000"]] #random data custom creation
 
+#load model
 with open('model_pickle','rb') as f:
     mp=pickle.load(f)
 
+
 a=mp.predict(data)
+#prediction outputs array so convert to int
 r=a[0]
 print(r)
 if r==1:
