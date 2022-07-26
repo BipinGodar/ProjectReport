@@ -1,10 +1,6 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn import metrics
-import pickle
 import os
 
 df=pd.read_csv("car_data.csv")
@@ -35,15 +31,19 @@ X=df.drop(labels=['Purchased'], axis=1)
 # print(Y)
 # print(df.head())
 
+from sklearn.model_selection import train_test_split
 # #Split Data into training and testing datasets
-X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.2, random_state=20)
-print(X_test)
+X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=0.3, random_state=20)
+# print(X_test)
+from sklearn.ensemble import RandomForestClassifier
 model = RandomForestClassifier(n_estimators=12, random_state=30)  #n-estimators no. of trees before selecting best tree
 model.fit(X_train, Y_train)
 
 prediction_test = model.predict(X_test)
+from sklearn import metrics
 print("Accuracy=",metrics.accuracy_score(Y_test,prediction_test))
 
+import pickle
 with open('model_pickle','wb') as f:
     pickle.dump(model,f)
 
