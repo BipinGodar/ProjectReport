@@ -14,18 +14,17 @@ df.drop(['User ID'], axis=1, inplace=True) #Drop the irrelevant attribute
 
 # print(df.head())
 # df= df.dropna()  #If some data is missing it will drop the whole tuple
-#
-#
+
 # #Convert non-numeric data to numeric
 df.Gender[df.Gender=='Female']=0
 df.Gender[df.Gender=='Male']=1
-#
-#
+
+
 #Define dependent variable the output value that it should give
 Y=df['Purchased'].values #values of the attribute column
 Y=Y.astype('int') #changes the values to list of integers
 # print(df.head())
-#
+
 # #Define independent variable, this value will include all flex sensor value
 X=df.drop(labels=['Purchased'], axis=1)
 # print(Y)
