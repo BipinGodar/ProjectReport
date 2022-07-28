@@ -4,6 +4,7 @@ import numpy as np
 import os
 
 df=pd.read_csv("car_data.csv")
+df=pd.read_csv("train/")
 # print(df.head())
 # sizes=df['Attribute1'].value_counts(sort=1)   #counts the no. of data for each class/label
 # print(sizes)
