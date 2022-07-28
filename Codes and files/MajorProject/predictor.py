@@ -7,7 +7,7 @@ import pickle
 import os
 from playsound import playsound
 
-data=[["0","80","45000"]] #random data custom creation
+data=[["0","35","95000"]] #random data custom creation
 
 #load model
 with open('model_pickle','rb') as f:
